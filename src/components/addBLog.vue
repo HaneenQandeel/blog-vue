@@ -23,11 +23,13 @@
         </li>
 
       </ul>
-
-
-
-
     </div>
+    <p>Author:</p>
+    <select v-model="blog.author" >
+      <option v-for="author in authors" v-bind:key="author">{{author}}</option>
+    </select>
+
+
     <div id="preview">
       <h3>Preview Blog</h3>
       <p>BLog Title {{blog.title}}</p>
@@ -36,6 +38,7 @@
       <ul>
         <li v-for="category in blog.categories" v-bind:key="category" >{{category}}</li>
       </ul>
+      <p>Author: {{blog.author}}</p>
     </div>
   </div>
 
@@ -53,9 +56,10 @@ export default {
       blog:{
         title:'',
         content:'',
-        categories:[]
-
-      }
+        categories:[],
+        author:''
+      },
+      authors:['Haneen','Omar','Salem']
     }
   }
 }
@@ -73,6 +77,10 @@ label {
   display:block;
   margin:14px 0 -9px;
  }
+select{
+  width:200px;
+  height:30px;
+}
 input,textarea{
   width:500px;
   padding:8px;
